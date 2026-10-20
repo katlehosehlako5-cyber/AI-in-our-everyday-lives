@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI in Everyday Life</title>
+<style>
+:root{
+  --bg:#f7f9fc; --surface:#ffffff; --text:#1b2433; --muted:#5a667a; --accent:#2563eb; --accent2:#7c3aed;
+  --good:#16794c; --bad:#b4372b; --border:#dde3ee; --hero1:#2563eb; --hero2:#7c3aed; --head:rgba(247,249,252,.92);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1420; --surface:#182033; --text:#e8edf7; --muted:#9aa7bf; --accent:#6ea0ff; --accent2:#b39bff;
+    --good:#5fd39a; --bad:#ff8f84; --border:#2a3550; --hero1:#1e3a8a; --hero2:#4c1d95; --head:rgba(15,20,32,.92);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --surface:#182033; --text:#e8edf7; --muted:#9aa7bf; --accent:#6ea0ff; --accent2:#b39bff;
+  --good:#5fd39a; --bad:#ff8f84; --border:#2a3550; --hero1:#1e3a8a; --hero2:#4c1d95; --head:rgba(15,20,32,.92);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--head);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--head);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+nav{max-width:1000px;margin:0 auto;padding:12px 16px;display:flex;gap:6px;align-items:center;overflow-x:auto;white-space:nowrap}
+nav strong{margin-right:10px;color:var(--accent)}
+nav a{color:var(--text);text-decoration:none;font-size:.9rem;padding:6px 12px;border-radius:999px}
+nav a:hover{background:var(--surface);color:var(--accent)}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;text-align:center;padding:72px 20px}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);margin:0 0 12px;line-height:1.15}
+.hero p{max-width:640px;margin:0 auto 24px;font-size:1.1rem;opacity:.95}
+.btn{display:inline-block;background:#fff;color:#2b2f8f;font-weight:600;padding:12px 24px;border-radius:999px;text-decoration:none}
+main{max-width:1000px;margin:0 auto;padding:0 16px}
+section{padding:56px 0 8px}
+h2{font-size:1.8rem;margin:0 0 6px}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin-top:8px}
+.lead{color:var(--muted);margin:14px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card .ic{font-size:1.8rem}
+.card h3{margin:8px 0 6px;font-size:1.1rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.good h3{color:var(--good)} .bad h3{color:var(--bad)}
+ul{padding-left:1.1rem;margin:8px 0 0} li{margin:6px 0}
+.q{background:var(--surface);border-left:5px solid var(--accent2);border-radius:10px;padding:18px 20px;font-size:1.1rem;font-weight:600;margin:16px 0}
+.cta{display:inline-block;background:var(--accent);color:#fff;font-weight:600;padding:12px 22px;border-radius:10px;text-decoration:none}
+.note{font-size:.88rem;color:var(--muted);margin-top:10px}
+.src{list-style:none;padding:0;margin:0}
+.src li{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0;color:var(--muted);font-size:.95rem}
+.src a{color:var(--accent);font-weight:600}
+footer{margin-top:64px;padding:28px 16px;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+<nav>
+  <strong>🤖 AI &amp; Us</strong>
+  <a href="#what">What is AI?</a>
+  <a href="#daily">Daily life</a>
+  <a href="#edu">Education &amp; health</a>
+  <a href="#pros">Benefits &amp; risks</a>
+  <a href="#future">The future</a>
+  <a href="#survey">Our survey</a>
+  <a href="#sources">Sources</a>
+</nav>
+</header>
+
+<div class="hero">
+  <h1>AI in Everyday Life</h1>
+  <p>How artificial intelligence is quietly changing the way we live, learn, shop, travel and work.</p>
+  <a class="btn" href="#what">Start exploring</a>
+</div>
+
+<main>
+<section id="what">
+  <h2>What is AI?</h2>
+  <p class="lead">Artificial Intelligence (AI) is made up of computer systems designed to do tasks that normally need human intelligence.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">📚</div><h3>Learning</h3><p>Improving from data and experience instead of following fixed rules only.</p></div>
+    <div class="card"><div class="ic">🧠</div><h3>Reasoning</h3><p>Working through information to reach sensible conclusions.</p></div>
+    <div class="card"><div class="ic">🧩</div><h3>Problem-solving</h3><p>Finding ways to get from a question or a challenge to an answer.</p></div>
+    <div class="card"><div class="ic">⚖️</div><h3>Decision-making</h3><p>Choosing an action, such as which song or product to suggest next.</p></div>
+  </div>
+  <p class="lead">What makes AI so subtle is that most people use it every day without even noticing.</p>
+</section>
+
+<section id="daily">
+  <h2>AI in daily life</h2>
+  <p class="lead">Here are some places you probably meet AI already.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">🎬</div><h3>Streaming</h3><p>Netflix and Apple Music use AI to recommend movies and music based on what you like.</p></div>
+    <div class="card"><div class="ic">🗣️</div><h3>Virtual assistants</h3><p>Siri, Alexa and ChatGPT help with reminders, searches and controlling smart devices.</p></div>
+    <div class="card"><div class="ic">🛒</div><h3>Online shopping</h3><p>AI suggests products, manages inventory and powers customer-service assistants, which do not always work perfectly.</p></div>
+    <div class="card"><div class="ic">🚗</div><h3>Transport</h3><p>Navigation apps and self-driving cars aim to make travel safer and more efficient.</p></div>
+  </div>
+</section>
+
+<section id="edu">
+  <h2>AI in education and healthcare</h2>
+  <div class="two" style="margin-top:18px">
+    <div class="card"><div class="ic">🎓</div><h3>Education</h3><p>AI-powered apps can give learners personalised tutoring and support, so students can get help at their own pace.</p></div>
+    <div class="card"><div class="ic">🩺</div><h3>Healthcare</h3><p>AI may help doctors with medical diagnoses. Many people are still deciding how much they trust it for something so important.</p></div>
+  </div>
+</section>
+
+<section id="pros">
+  <h2>Benefits and risks</h2>
+  <p class="lead">AI makes life more convenient, efficient and personalised, but it also raises serious concerns.</p>
+  <div class="two">
+    <div class="card good"><h3>✅ Benefits</h3>
+      <ul><li>Saves time and makes everyday tasks easier</li><li>Personalised recommendations and learning</li><li>Safer, more efficient travel</li><li>Support for people in education and healthcare</li></ul></div>
+    <div class="card bad"><h3>⚠️ Risks</h3>
+      <ul><li><b>Jobs:</b> automation may replace some human work and affect the economy</li><li><b>Privacy:</b> AI analyses your data, and most people agree to this in the terms and conditions without a real choice</li><li><b>Bias:</b> algorithms can sometimes reinforce unfairness</li><li><b>Ethics:</b> who is responsible when AI gets it wrong?</li></ul></div>
+  </div>
+  <p class="lead">AI offers many opportunities, but it must be used responsibly so that its benefits outweigh the risks.</p>
+</section>
+
+<section id="future">
+  <h2>The future</h2>
+  <div class="q">Will AI take over the world in terms of jobs and the economy? How is AI going to change the way we live in the next 10 to 20 years?</div>
+  <div class="grid">
+    <div class="card"><div class="ic">💼</div><h3>Work</h3><p>Some jobs may disappear while new ones appear. How ready are we?</p></div>
+    <div class="card"><div class="ic">🏫</div><h3>Learning</h3><p>School and study could become more personal and flexible.</p></div>
+    <div class="card"><div class="ic">📜</div><h3>Rules</h3><p>Governments may need to regulate AI to protect people.</p></div>
+  </div>
+</section>
+
+<section id="survey">
+  <h2>Our survey</h2>
+  <p class="lead">We asked people about their experiences with AI, from daily use and trust to privacy and ethics. Add your voice!</p>
+  <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeqdlN74PJWtmOF9su6cje35JsrEfCTikeq2l-dOGgx4xJsSA/viewform?usp=sharing&amp;ouid=111969171844399003706" target="_blank" rel="noopener noreferrer">Take the survey</a>
+  <p class="note">Opens in a new tab. It takes about 5 minutes and your answers are anonymous.</p>
+</section>
+
+<section id="sources">
+  <h2>Sources</h2>
+  <p class="lead">Where our information comes from:</p>
+  <ul class="src">
+    <li><a href="https://hai.stanford.edu/ai-index" target="_blank" rel="noopener noreferrer">AI Index Report</a>, Stanford Institute for Human-Centered AI (HAI). An annual report tracking AI progress, economic impact and public views.</li>
+    <li><a href="https://www.unesco.org/en/articles/use-ai-education-deciding-future-we-want" target="_blank" rel="noopener noreferrer">Use of AI in education: Deciding on the future we want</a>, UNESCO (2024). On the opportunities and risks of AI in schools.</li>
+    <li><a href="https://www.who.int/publications/i/item/9789240029200" target="_blank" rel="noopener noreferrer">Ethics and governance of artificial intelligence for health</a>, World Health Organization (2021). On AI in healthcare and its ethical challenges.</li>
+    <li>Our own survey, <em>AI in Everyday Life</em>, which collected the opinions of people about how they use and feel about AI.</li>
+  </ul>
+</section>
+</main>
+
+<footer>AI in Everyday Life · A research project on how AI changes the way we do things</footer>
+</body>
+</html>
